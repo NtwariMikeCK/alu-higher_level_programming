@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import sys
 
+
 def main():
     argv = sys.argv[1:]  # exclude the script name itself
     num_args = len(argv)
