@@ -8,6 +8,7 @@ def print_matrix_integer(matrix=[[]]):
                 print("{:d}".format(num), end="")
         print()  # New line at the end of each row
 
+
 # Sample usage:
 if __name__ == "__main__":
     matrix = [
