@@ -9,7 +9,6 @@ def new_in_list(my_list, idx, element):
     new_list = my_list[:]
     # Replace the element at the specified index
     new_list[idx] = element
-    
     return new_list
 
 
@@ -19,6 +18,5 @@ if __name__ == "__main__":
     idx = 3
     new_element = 9
     new_list = new_in_list(my_list, idx, new_element)
-
     print(new_list)  # Output: [1, 2, 3, 9, 5]
     print(my_list)   # Output: [1, 2, 3, 4, 5]
