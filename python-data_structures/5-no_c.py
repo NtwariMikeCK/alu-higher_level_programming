@@ -11,6 +11,7 @@ def no_c(my_string):
 
     return new_string
 
+
 # Sample usage:
 if __name__ == "__main__":
     print(no_c("Best School"))  # Output: Best Shool
