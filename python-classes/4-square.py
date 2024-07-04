@@ -1,13 +1,21 @@
-#!/usr/bin/python
+#!/usr/bin/python3
+"""
+innitialization
+"""
+
 
 class Square:
     def __init__(self, size=0):
         self.size = size  # This will invoke the setter method to ensure validation
-
+"""
+assigning the gettor operator
+"""
     @property
     def size(self):
         return self.__size
-
+"""
+assigning the settor operator
+"""
     @size.setter
     def size(self, value):
         if not isinstance(value, int):
