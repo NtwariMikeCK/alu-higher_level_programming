@@ -3,8 +3,6 @@
 Defining which interpreter to run the below code
 """
 
-
-
 class Square:
     """
     defining the class
