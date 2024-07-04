@@ -1,6 +1,11 @@
-#!/usr/bin/python
-
+#!/usr/bin/python3
+"""
+This is the extention of the class square
+"""
 class Square:
+    """
+    defining the class square
+    """
     def __init__(self, size=0):
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
