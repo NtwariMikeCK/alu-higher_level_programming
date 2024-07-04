@@ -3,7 +3,7 @@
 
 
 class Square:
-    
+ """ This is the square class"""   
     def __init__(self, size):
         """ this is the side of the square"""
         self.size = size    
