@@ -69,12 +69,6 @@ class Square:
     def position(self, value):
         """
         Sets the position of the square.
-
-        Args:
-            value (tuple): The new position of the square.
-
-        Raises:
-            TypeError: If position is not a tuple of 2 positive integers.
         """
         if (not isinstance(value, tuple) or len(value) != 2 or
                 not all(isinstance(num, int) for num in value) or
