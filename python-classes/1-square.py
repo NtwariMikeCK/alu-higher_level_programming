@@ -1,15 +1,21 @@
 #!/usr/bin/python3
-""" 
-This is a class that defines a square with it's side
+"""
+This module defines a class Square.
 """
 
 
-class Square:     
-""" 
-This is the square class
-"""
+class Square:
+    """
+    Represents a square.
+
+    Attributes:
+        __size (int): The size of the square.
+    """
     def __init__(self, size):
-        """ 
-        this is the side of the square
         """
-        self.size = size    
+        Initializes a new square.
+
+        Args:
+            size (int): The size of the square.
+        """
+        self.__size = size
