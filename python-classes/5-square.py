@@ -11,8 +11,9 @@ class Square:
     Attributes:
         __size (int): The size of the square.
     """
+
     def __init__(self, size=0):
-         """
+        """
         Initializes a new square.
 
         Args:
@@ -22,14 +23,30 @@ class Square:
             TypeError: If size is not an integer.
             ValueError: If size is less than 0.
         """
-        self.size = size  # This will invoke the setter method to ensure validation
+        self.size = size  # Using the property setter
 
     @property
     def size(self):
+        """
+        Retrieves the size of the square.
+
+        Returns:
+            int: The size of the square.
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
+        """
+        Sets the size of the square.
+
+        Args:
+            value (int): The new size of the square.
+
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -43,17 +60,15 @@ class Square:
         Returns:
             int: The area of the square.
         """
-        return self.__size * self.__size
-    
+        return self.__size ** 2
+
     def my_print(self):
         """
-        This checks if size is 0 and returns empty str.
-
-        else:
-            prints # * size in the range of size        
+        Prints the square with the character #.
+        If size is equal to 0, print an empty line.
         """
         if self.__size == 0:
             print("")
         else:
-            for _ in range(self.__size):
+            for i in range(self.__size):
                 print("#" * self.__size)
