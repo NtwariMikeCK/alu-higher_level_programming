@@ -34,7 +34,6 @@ class Square:
         Retrieves the size of the square.
 
         Returns:
-            int: The size of the square.
         """
         return self.__size
 
@@ -95,8 +94,7 @@ class Square:
     def my_print(self):
         """
         Prints the square with the character #.
-        If size is equal to 0, print an empty line.
-        The position should be used by using spaces.
+        If size is equal to 0, print an empty line.        
         """
         if self.__size == 0:
             print("")
