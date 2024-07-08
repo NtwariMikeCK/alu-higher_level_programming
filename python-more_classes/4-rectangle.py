@@ -1,28 +1,23 @@
 #!/usr/bin/python3
-"""This is a class that defines a rectangle and helps us to calculate the area and mean"""
+""" this module creates a class called Rectangle"""
 
 
 class Rectangle:
-    """Defines a rectangle."""
-    
+    """Defines a rectangle by its width and height."""
+
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle.
-        
-        Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-        """
+        """Initializes a new rectangle with the given width and height."""
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """Get the width of the rectangle."""
+        """Retrieves the width of the rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Set the width of the rectangle."""
+        """Sets the width of the rectangle."""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -31,12 +26,12 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get the height of the rectangle."""
+        """Retrieves the height of the rectangle."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Set the height of the rectangle."""
+        """Sets the height of the rectangle."""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -44,27 +39,21 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Return the area of the rectangle."""
+        """Returns the area of the rectangle."""
         return self.__width * self.__height
 
     def perimeter(self):
-        """Return the perimeter of the rectangle."""
+        """Returns the perimeter of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Return the printable representation of the rectangle.
-        
-        Represents the rectangle with the character #.
-        """
+        """Returns the string representation of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
         return "\n".join(["#" * self.__width for _ in range(self.__height)])
-
-    def __repr__(self):
-        """Return a string representation of the rectangle.
         
-        The string representation can be used to recreate a new instance using eval().
-        """
+    def __repr__(self):
+        """Return a string representation of the rectangle."""
         return f"Rectangle({self.__width}, {self.__height})"
