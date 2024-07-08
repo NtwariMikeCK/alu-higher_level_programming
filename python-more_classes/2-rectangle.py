@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" this module creates a class called Rectangle, then form new class methods"""
+""" this module creates a class called Rectangle"""
 
 
 class Rectangle:
@@ -38,13 +38,12 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
-     def perimeter(self):
+    def area(self):
+        """Returns the area of the rectangle."""
+        return self.__width * self.__height
+
+    def perimeter(self):
         """Returns the perimeter of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
-    
-    def area(self):
-        """we are going to calculate the area"""
-        result2 = self.__height * self.__width
-        return result2
