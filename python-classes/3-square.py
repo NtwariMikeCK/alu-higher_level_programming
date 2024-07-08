@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module defines a class Square.
+This is the extention of the class square
 """
 
 
