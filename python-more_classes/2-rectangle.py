@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" this module creates a class called Rectangle"""
+""" this module creates a class called Rectangle, then form new class methods"""
 
 
 class Rectangle:
