@@ -2,5 +2,5 @@
 
 
 class Rectangle:
-  """We are creating a class named rectangle that will help us to find the area"""
-  pass
+    """An empty class that defines a rectangle."""
+    pass
