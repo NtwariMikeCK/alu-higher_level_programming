@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """this module creates a class called Rectangle"""
 
-
 class Rectangle:
     """Defines a rectangle by its width and height."""
+
     number_of_instances = 0
+
     def __init__(self, width=0, height=0):
-        """Initializes a  with the given wd height."""
+        """Initializes a new rectangle with the given width and height."""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
@@ -50,16 +51,16 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Returnsing representation of the rectangle."""
+        """Returns the string representation of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
         return "\n".join(["#" * self.__width for _ in range(self.__height)])
-        
+
     def __repr__(self):
-        """Returns a string rep of the rectangle"""
+        """Returns a string representation of the rectangle"""
         return f"Rectangle({self.__width}, {self.__height})"
-    
+
     def __del__(self):
-        """Prints a message wectangle is deleted"""
+        """Prints a message when an instance of Rectangle is deleted"""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
