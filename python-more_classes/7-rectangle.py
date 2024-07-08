@@ -1,20 +1,14 @@
 #!/usr/bin/python3
-"""This is a class that defines a rectangle and helps us to calculate the area and mean"""
+"""This is a class that defines a rectangle and helps"""
 
 
 class Rectangle:
     """Defines a rectangle."""
-
     number_of_instances = 0
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle.
-        
-        Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-        """
+        """Initialize a new Rectangle"""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
@@ -58,23 +52,17 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Return the printable representation of the rectangle.
-        
-        Represents the rectangle with the character(s) stored in print_symbol.
-        """
+        """Returns the string representation of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join([str(self.print_symbol) * self.__width for _ in range(self.__height)])
+        lines = [str(self.print_symbol) * self.__width] * self.__height
+        return "\n".join(lines)
 
     def __repr__(self):
-        """Return a string representation of the rectangle.
-        
-        The string representation can be used to recreate a new instance using eval().
-        """
+        """Return a string representation of the rectangle"""
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        """Print a message when an instance of Rectangle is deleted and decrement the number of instances."""
+        """Print a message when an instance of Rectangle"""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
-
