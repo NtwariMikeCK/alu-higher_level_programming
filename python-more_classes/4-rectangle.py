@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """this module creates a class called Rectangle"""
 
-
 class Rectangle:
     """Defines a rectangle by its width and height."""
 
