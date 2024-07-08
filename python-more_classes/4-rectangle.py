@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" this module creates a class called Rectangle"""
+"""this module creates a class called Rectangle"""
 
 
 class Rectangle:
@@ -55,5 +55,5 @@ class Rectangle:
         return "\n".join(["#" * self.__width for _ in range(self.__height)])
         
     def __repr__(self):
-        """Return a string representation of the rectangle."""
+        """Return a string representation of the rectangle"""
         return f"Rectangle({self.__width}, {self.__height})"
