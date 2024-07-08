@@ -5,9 +5,8 @@
 class Rectangle:
     """Defines a rectangle by its width and height."""
     number_of_instances = 0
-    
     def __init__(self, width=0, height=0):
-        """Initializes a  with the given width and height."""
+        """Initializes a  with the given wd height."""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
