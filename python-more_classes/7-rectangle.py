@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is a class that defines a rectangle and helps us to calculate the area and mean"""
+"""This is a class that defines a rectangle and helps"""
 
 
 class Rectangle:
@@ -55,7 +55,8 @@ class Rectangle:
         """Return the printable representation of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join([str(self.print_symbol) * self.__width for _ in range(self.__height)])
+        return "\n".join([str(self.print_symbol) * 
+            self.__width for _ in range(self.__height)])
 
     def __repr__(self):
         """Return a string representation of the rectangle"""
