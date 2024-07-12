@@ -1,17 +1,38 @@
 #!/usr/bin/python3
-Square = __import__('5-square').Square
+"""Define a class Square."""
 
-my_square = Square(3)
-my_square.my_print()
 
-print("--")
+class Square:
+    """Represent a square."""
 
-my_square.size = 10
-my_square.my_print()
+    def __init__(self, size):
+        """Initialize a new square.
+        Args:
+            size (int): The size of the new square.
+        """
+        self.size = size
 
-print("--")
+    @property
+    def size(self):
+        """Get/set the current size of the square."""
+        return (self.__size)
 
-my_square.size = 0
-my_square.my_print()
+    @size.setter
+    def size(self, value):
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = value
 
-print("--")
+    def area(self):
+        """Return the current area of the square."""
+        return (self.__size * self.__size)
+
+    def my_print(self):
+        """Print the square with the # character."""
+        for i in range(0, self.__size):
+            [print("#", end="") for j in range(self.__size)]
+            print("")
+        if self.__size == 0:
+            print("")
