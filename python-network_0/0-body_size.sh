@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # Check if exactly one argument is provided
 if [ "$#" -ne 1 ]; then
