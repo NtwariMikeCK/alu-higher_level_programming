@@ -1,23 +1,17 @@
 #!/usr/bin/python3
-"""
-This script fetches the status from https://alu-intranet.hbtn.io/status
-and displays the body of the response with specific formatting.
-
-Requirements:
-    - Only the requests module is allowed.
-    - The response body must be displayed as:
-      Body response:
-          - type: <class 'str'>
-          - content: OK
-"""
+#Fetches https://alu-intranet.hbtn.io/st
 
 import requests
 
-if __name__ == "__main__":
+def fetch_status():
+    """Fetches the content of a URL and """
     url = 'https://alu-intranet.hbtn.io/status'
     response = requests.get(url)
     body = response.text
 
     print("Body response:")
-    print(f"\t- type: {type(body)}")
-    print(f"\t- content: {body}")
+    print(f"    - type: {type(body)}")
+    print(f"    - content: {body}")
+
+if __name__ == "__main__":
+    fetch_status()
