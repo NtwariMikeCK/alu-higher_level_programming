@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Fetches https://alu-intranet.hbtn.io/status using requests."""
+#Fetches https://alu-intranet.hbtn.io/st
 
 import requests
 
 def fetch_status():
-    """Fetches the content of a URL and prints its type and content."""
+    """Fetches the content of a URL and """
     url = 'https://alu-intranet.hbtn.io/status'
     response = requests.get(url)
     body = response.text
