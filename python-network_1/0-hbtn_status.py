@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Fetches https://alu-intranet.hbtn.io/status using urllib."""
+"""Fetches https://alu-intranet."""
 
 import urllib.request
 
 def fetch_status():
-    """Fetches the content of a URL and prints its type, content, and utf8 content."""
+    """Fetches the content of a8 content."""
     url = 'https://alu-intranet.hbtn.io/status'
     with urllib.request.urlopen(url) as response:
         body = response.read()
