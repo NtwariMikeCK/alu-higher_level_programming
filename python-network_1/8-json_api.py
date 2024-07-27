@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""Takes in a letter and sends a POST request to a specified URL with the letter as a parameter."""
+""" Takes in a letter to URL with the letter as a parameter. """
 
 import requests
 import sys
 
 def search_user():
-    """Send a POST request with a letter as a parameter and process the response."""
+    """ Send a POST request with a and process the response. """
     url = 'http://0.0.0.0:5000/search_user'
     
     # Get the letter from the command line argument, or set q="" if no argument is given
