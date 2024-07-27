@@ -1,16 +1,14 @@
 #!/usr/bin/python3
-"""
-A script to fetch and display the content from a specific URL.
-"""
+"""Fetches https://alu-intranet.hbtn.io/status using urllib."""
 
 import urllib.request
 
 def fetch_status():
-    """Fetches content from a URL and prints its details."""
+    """Fetches the content of a URL and prints its type, content, and utf8 content."""
     url = 'https://alu-intranet.hbtn.io/status'
     with urllib.request.urlopen(url) as response:
         body = response.read()
-        
+
     print("Body response:")
     print(f"    - type: {type(body)}")
     print(f"    - content: {body}")
