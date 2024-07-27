@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-""" Takes in a letter to URL with the letter as a parameter. """
 
 import requests
 import sys
