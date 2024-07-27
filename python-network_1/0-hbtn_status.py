@@ -2,12 +2,17 @@
 """Documented"""
 import urllib.request
 
-url = 'https://alu-intranet.hbtn.io/status'
 
-req = urllib.request.Request(url)
-with urllib.request.urlopen(req) as response:
-    content = response.read()
+def fetch_status():
+#Fetches the content of a URL and prints its type, cont.
+    url = 'https://alu-intranet.hbtn.io/status'
+    with urllib.request.urlopen(url) as response:
+        body = response.read()
+#opens the url.
     print("Body response:")
-    print("\t- type:", type(content))
-    print("\t- content:", content)
-    print("\t- utf8 content:", content.decode("utf-8"))
+    print(f"    - type: {type(body)}")
+    print(f"    - content: {body}")
+    print(f"    - utf8 content: {body.decode('utf-8')}")
+#the print .
+if __name__ == "__main__":
+    fetch_status()
