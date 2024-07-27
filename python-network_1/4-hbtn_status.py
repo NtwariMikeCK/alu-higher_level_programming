@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """
-This script fetches the status from https://alu-intranet.hbtn.io/status
-and displays the body of the response with specific formatting.
+This script sends a request to a given URL and displays the value of the
+X-Request-Id variable found in the response headers.
+
+Usage:
+    ./5-hbtn_header.py <URL>
 
 Requirements:
-    - Only the requests module is allowed.
-    - The response body must be displayed as:
-      Body response:
-          - type: <class 'str'>
-          - content: OK
+    - The first argument is the URL.
+    - Only requests and sys modules are allowed.
 """
 
 import requests
