@@ -1,28 +1,53 @@
-def text_indentation(text):
-    """
-    Prints a text with 2 new lines after each of these characters: ., ? and :
+#!/usr/bin/python3
+"""Unittest for text_indentation function"""
+import unittest
+from io import StringIO
+import sys
+text_indentation = __import__('5-text_indentation').text_indentation
 
-    Parameters:
-    text (str): The text to be processed.
+class TestTextIndentation(unittest.TestCase):
+    def test_simple(self):
+        """Test simple string"""
+        text = "Hello. How are you? I am fine:"
+        expected_output = "Hello.\n\nHow are you?\n\nI am fine:\n\n"
+        self.check_output(text, expected_output)
+        
+    def test_with_spaces(self):
+        """Test string with spaces after punctuation"""
+        text = "Hello.   How are you?    I am fine:   "
+        expected_output = "Hello.\n\nHow are you?\n\nI am fine:\n\n"
+        self.check_output(text, expected_output)
 
-    Raises:
-    TypeError: If text is not a string.
-    """
-    if not isinstance(text, str):
-        raise TypeError("text must be a string")
+    def test_no_punctuation(self):
+        """Test string with no punctuation"""
+        text = "Hello How are you I am fine"
+        expected_output = "Hello How are you I am fine"
+        self.check_output(text, expected_output)
 
-    chars = ['.', '?', ':']
-    result = ""
-    i = 0
+    def test_only_punctuation(self):
+        """Test string with only punctuation"""
+        text = ".?:"
+        expected_output = ".\n\n?\n\n:\n\n"
+        self.check_output(text, expected_output)
 
-    while i < len(text):
-        result += text[i]
-        if text[i] in chars:
-            result += "\n\n"
-            i += 1
-            while i < len(text) and text[i] == ' ':
-                i += 1
-            continue
-        i += 1
+    def test_empty_string(self):
+        """Test empty string"""
+        text = ""
+        expected_output = ""
+        self.check_output(text, expected_output)
 
-    print(result.strip())
+    def test_type_error(self):
+        """Test non-string input"""
+        with self.assertRaises(TypeError):
+            text_indentation(1234)
+    
+    def check_output(self, text, expected_output):
+        """Helper method to check the output of the function"""
+        output = StringIO()
+        sys.stdout = output
+        text_indentation(text)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(output.getvalue(), expected_output)
+
+if __name__ == '__main__':
+    unittest.main()
