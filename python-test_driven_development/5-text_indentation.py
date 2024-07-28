@@ -26,4 +26,5 @@ def text_indentation(text):
             continue
         i += 1
 
+    # Strip trailing spaces and newlines from the result
     print(result.strip())
