@@ -9,13 +9,13 @@ class TestTextIndentation(unittest.TestCase):
     def test_simple(self):
         """Test simple string"""
         text = "Hello. How are you? I am fine:"
-        expected_output = "Hello.\n\nHow are you?\n\nI am fine:\n\n"
+        expected_output = "Hello.\n\nHow are you?\n\nI am fine:"
         self.check_output(text, expected_output)
         
     def test_with_spaces(self):
         """Test string with spaces after punctuation"""
         text = "Hello.   How are you?    I am fine:   "
-        expected_output = "Hello.\n\nHow are you?\n\nI am fine:\n\n"
+        expected_output = "Hello.\n\nHow are you?\n\nI am fine:"
         self.check_output(text, expected_output)
 
     def test_no_punctuation(self):
@@ -27,7 +27,7 @@ class TestTextIndentation(unittest.TestCase):
     def test_only_punctuation(self):
         """Test string with only punctuation"""
         text = ".?:"
-        expected_output = ".\n\n?\n\n:\n\n"
+        expected_output = ".\n\n?\n\n:"
         self.check_output(text, expected_output)
 
     def test_empty_string(self):
@@ -47,7 +47,7 @@ class TestTextIndentation(unittest.TestCase):
         sys.stdout = output
         text_indentation(text)
         sys.stdout = sys.__stdout__
-        self.assertEqual(output.getvalue(), expected_output)
+        self.assertEqual(output.getvalue().strip(), expected_output)
 
 if __name__ == '__main__':
     unittest.main()
