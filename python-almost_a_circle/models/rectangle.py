@@ -3,6 +3,7 @@
 
 from models.base import Base
 
+
 class Rectangle(Base):
     """ Rectangle class inheriting from Base """
 
@@ -66,11 +67,11 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def __str__(self):
-        """ Returns the string representation of the rectangle """
+        """ Returns the string the rectangle """
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
 
     def display(self):
-        """ Prints the rectangle in the console """
+        """ Prints the rectan in the console """
         print("\n" * self.__y + "\n".join([" " * self.__x + "#" * self.__width] * self.__height))
 
     def to_dictionary(self):
