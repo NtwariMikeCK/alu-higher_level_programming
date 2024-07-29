@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """mysql work"""
+
 import MySQLdb
 import sys
 
