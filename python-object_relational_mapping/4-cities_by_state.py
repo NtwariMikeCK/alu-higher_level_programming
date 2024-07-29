@@ -1,10 +1,13 @@
 #!/usr/bin/python3
+"""mysql"""
+
 import MySQLdb
 import sys
 
+
 def list_cities(username, password, database):
     """
-    Connects to a MySQL database and lists all cities with their state names,
+    Connects to a MySQL database and lists all cities names,
     sorted by city id.
 
     Args:
@@ -20,11 +23,9 @@ def list_cities(username, password, database):
         passwd=password,
         db=database
     )
-    
     # Create a cursor object
     cursor = db.cursor()
-    
-    # Execute the query to get cities and their states sorted by city id
+    # Execute the query to get citisorted by city id
     query = """
         SELECT cities.id, cities.name, states.name
         FROM cities
@@ -32,25 +33,23 @@ def list_cities(username, password, database):
         ORDER BY cities.id ASC
     """
     cursor.execute(query)
-    
     # Fetch all rows from the executed query
     cities = cursor.fetchall()
-    
     # Print the results in the specified format
     for city in cities:
         print(city)
-    
     # Close the cursor and database connection
     cursor.close()
     db.close()
 
+
 if __name__ == "__main__":
     """
-    Entry point of the script. Expects exactly 3 command-line arguments:
-    mysql username, mysql password, and database name. If the number of
+    Entry point of the script. Expects ee arguments:
+    mysql username, mysql password, and database mber of
     arguments is incorrect, prints a usage message.
     """
-    # Check if there are exactly 3 arguments (script name + 3 arguments)
+    # Check if there are exactly 3 arguments 
     if len(sys.argv) != 4:
         print("Usage: ./4-cities_by_state.py")
         print("       <mysql username>")
