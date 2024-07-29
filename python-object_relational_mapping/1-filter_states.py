@@ -1,59 +1,42 @@
 #!/usr/bin/python3
+"""
+A script that lists all states with a name starting with 'N' from the database hbtn_0e_0_usa.
 
-"""i hate python"""
+The script takes three arguments: MySQL username, MySQL password, and database name.
+It connects to a MySQL server running on localhost at port 3306.
+Results are sorted in ascending order by states.id.
+"""
 
 import MySQLdb
 import sys
 
+if __name__ == "__main__":
+    # Get MySQL credentials and database name from arguments
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
 
-def list_states(username, password, database):
-    """
-    Connects to a MySQL database and lists all states sorted by id.
-
-    Args:
-        username (str): The MySQL username.
-        password (str): The MySQL password.
-        database (str): The name of the MySQL database.
-    """
-    # Connect to the MySQL server
+    # Connect to the MySQL database
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=username,
-        passwd=password,
-        db=database
+        user=mysql_username,
+        passwd=mysql_password,
+        db=database_name
     )
-    # Create a cursor object
+
+    # Create a cursor to execute SQL queries
     cursor = db.cursor()
-    # Execute the query to get all states sorted by id
+
+    # Execute the SQL query to find states with names starting with 'N'
     query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
     cursor.execute(query)
-    # Fetch all rows from the executed query
+
+    # Fetch all the results and print them
     states = cursor.fetchall()
-    # Print the results in the specified format
     for state in states:
         print(state)
+
     # Close the cursor and database connection
     cursor.close()
     db.close()
-
-
-if __name__ == "__main__":
-    """
-    Entry point of the script. Expects exactly 3 command-line arguments:
-    mysql username, mysql password, and database name. If the number of
-    arguments is incorrect, prints a usage message.
-    """
-    # Check if there are exactly 3 arguments (script name + 3 arguments)
-    if len(sys.argv) != 4:
-        print("Usage: ./1-filter_states.py")
-        print("       <mysql username>")
-        print("       <mysql password>")
-        print("       <database name>")
-    else:
-        # Extract arguments from command line
-        username = sys.argv[1]
-        password = sys.argv[2]
-        database = sys.argv[3]
-        # Call the function to filter and list states
-        filter_states(username, password, database)
