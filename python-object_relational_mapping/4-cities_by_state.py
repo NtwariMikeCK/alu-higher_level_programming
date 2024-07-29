@@ -45,9 +45,7 @@ def list_cities(username, password, database):
 
 if __name__ == "__main__":
     """
-    Entry point of the script. Expects ee arguments:
-    mysql username, mysql password, and database mber of
-    arguments is incorrect, prints a usage message.
+    Entry point of the script. Expects ee arguments
     """
     # Check if there are exactly 3 arguments 
     if len(sys.argv) != 4:
