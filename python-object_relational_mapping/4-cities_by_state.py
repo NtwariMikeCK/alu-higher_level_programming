@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-
-"""i hate python"""
-
 import MySQLdb
 import sys
 
-
-def list_states(username, password, database):
+def list_cities(username, password, database):
     """
-    Connects to a MySQL database and lists all states sorted by id.
+    Connects to a MySQL database and lists all cities with their state names,
+    sorted by city id.
 
     Args:
         username (str): The MySQL username.
@@ -23,19 +20,29 @@ def list_states(username, password, database):
         passwd=password,
         db=database
     )
+    
     # Create a cursor object
     cursor = db.cursor()
-    # Execute the query to get all states sorted by id
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    
+    # Execute the query to get cities and their states sorted by city id
+    query = """
+        SELECT cities.id, cities.name, states.name
+        FROM cities
+        JOIN states ON cities.state_id = states.id
+        ORDER BY cities.id ASC
+    """
+    cursor.execute(query)
+    
     # Fetch all rows from the executed query
-    states = cursor.fetchall()
+    cities = cursor.fetchall()
+    
     # Print the results in the specified format
-    for state in states:
-        print(state)
+    for city in cities:
+        print(city)
+    
     # Close the cursor and database connection
     cursor.close()
     db.close()
-
 
 if __name__ == "__main__":
     """
@@ -45,7 +52,7 @@ if __name__ == "__main__":
     """
     # Check if there are exactly 3 arguments (script name + 3 arguments)
     if len(sys.argv) != 4:
-        print("Usage: ./0-select_states.py")
+        print("Usage: ./4-cities_by_state.py")
         print("       <mysql username>")
         print("       <mysql password>")
         print("       <database name>")
@@ -54,5 +61,5 @@ if __name__ == "__main__":
         username = sys.argv[1]
         password = sys.argv[2]
         database = sys.argv[3]
-        # Call the function to list states
-        list_states(username, password, database)
+        # Call the function to list cities
+        list_cities(username, password, database)

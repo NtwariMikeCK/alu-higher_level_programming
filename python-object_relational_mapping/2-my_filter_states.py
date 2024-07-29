@@ -1,19 +1,17 @@
 #!/usr/bin/python3
-
-"""i hate python"""
-
 import MySQLdb
 import sys
 
-
-def list_states(username, password, database):
+def filter_states(username, password, database, state_name):
     """
-    Connects to a MySQL database and lists all states sorted by id.
+    Connects to a MySQL database and lists all states with names matching the given state_name,
+    sorted by id.
 
     Args:
         username (str): The MySQL username.
         password (str): The MySQL password.
         database (str): The name of the MySQL database.
+        state_name (str): The name of the state to search for.
     """
     # Connect to the MySQL server
     db = MySQLdb.connect(
@@ -23,36 +21,43 @@ def list_states(username, password, database):
         passwd=password,
         db=database
     )
+    
     # Create a cursor object
     cursor = db.cursor()
-    # Execute the query to get all states sorted by id
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    
+    # Execute the query to get states with names matching the provided state_name
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    cursor.execute(query, (state_name,))
+    
     # Fetch all rows from the executed query
     states = cursor.fetchall()
+    
     # Print the results in the specified format
     for state in states:
         print(state)
+    
     # Close the cursor and database connection
     cursor.close()
     db.close()
 
-
 if __name__ == "__main__":
     """
-    Entry point of the script. Expects exactly 3 command-line arguments:
-    mysql username, mysql password, and database name. If the number of
+    Entry point of the script. Expects exactly 4 command-line arguments:
+    mysql username, mysql password, database name, and state name. If the number of
     arguments is incorrect, prints a usage message.
     """
-    # Check if there are exactly 3 arguments (script name + 3 arguments)
-    if len(sys.argv) != 4:
-        print("Usage: ./0-select_states.py")
+    # Check if there are exactly 4 arguments (script name + 4 arguments)
+    if len(sys.argv) != 5:
+        print("Usage: ./2-my_filter_states.py")
         print("       <mysql username>")
         print("       <mysql password>")
         print("       <database name>")
+        print("       <state name>")
     else:
         # Extract arguments from command line
         username = sys.argv[1]
         password = sys.argv[2]
         database = sys.argv[3]
-        # Call the function to list states
-        list_states(username, password, database)
+        state_name = sys.argv[4]
+        # Call the function to filter and list states
+        filter_states(username, password, database, state_name)

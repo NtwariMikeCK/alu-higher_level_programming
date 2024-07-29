@@ -26,7 +26,8 @@ def list_states(username, password, database):
     # Create a cursor object
     cursor = db.cursor()
     # Execute the query to get all states sorted by id
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+    cursor.execute(query)
     # Fetch all rows from the executed query
     states = cursor.fetchall()
     # Print the results in the specified format
@@ -45,7 +46,7 @@ if __name__ == "__main__":
     """
     # Check if there are exactly 3 arguments (script name + 3 arguments)
     if len(sys.argv) != 4:
-        print("Usage: ./0-select_states.py")
+        print("Usage: ./1-filter_states.py")
         print("       <mysql username>")
         print("       <mysql password>")
         print("       <database name>")
@@ -54,5 +55,5 @@ if __name__ == "__main__":
         username = sys.argv[1]
         password = sys.argv[2]
         database = sys.argv[3]
-        # Call the function to list states
-        list_states(username, password, database)
+        # Call the function to filter and list states
+        filter_states(username, password, database)
