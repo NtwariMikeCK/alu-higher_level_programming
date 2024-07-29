@@ -4,6 +4,7 @@
 import MySQLdb
 import sys
 
+
 def filter_states(username, password, database, state_name):
     """
     Connects to a MySQL database and lists all statesthe given state_name,
