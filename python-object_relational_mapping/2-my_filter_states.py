@@ -46,8 +46,8 @@ if __name__ == "__main__":
     """
     # Check if there are exactly 4 arguments (script name + 4 arguments)
     if len(sys.argv) != 5:
-        print("Usage: ./2-my_filter_states.py <mysql username> <mysql password> "
-              "<database name> <state name>")
+        print("Usage: ./2-my_filter_states.py <mysql username> "
+              "<mysql password> <database name> <state name>")
     else:
         # Extract arguments from command line
         username = sys.argv[1]
