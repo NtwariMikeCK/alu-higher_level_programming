@@ -1,8 +1,6 @@
 #!/usr/bin/python3
+"""mysql"""
 
-"""
-This module defines a State class and links it to the MySQL table 'states'.
-"""
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
