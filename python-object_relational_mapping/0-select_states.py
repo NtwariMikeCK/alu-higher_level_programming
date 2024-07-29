@@ -16,7 +16,13 @@ def list_states(username, password, database):
         database (str): The name of the MySQL database.
     """
     # Connect to the MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
     # Create a cursor object
     cursor = db.cursor()
     # Execute the query to get all states sorted by id
@@ -26,7 +32,6 @@ def list_states(username, password, database):
     # Print the results in the specified format
     for state in states:
         print(state)
-    
     # Close the cursor and database connection
     cursor.close()
     db.close()
