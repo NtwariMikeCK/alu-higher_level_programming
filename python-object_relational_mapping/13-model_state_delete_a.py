@@ -13,30 +13,22 @@ if __name__ == "__main__":
     if len(sys.argv) != 4:
         print("Usage: ./13-model_state_delete_a.py <mysql username> <mysql password> <database name>")
         sys.exit(1)
-    
     # Extract arguments from command line
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    
     # Create an engine that connects to the MySQL database
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(username, password, database), pool_pre_ping=True)
-    
     # Create a configured "Session" class
     Session = sessionmaker(bind=engine)
-    
     # Create a Session instance
     session = Session()
-    
     # Query for all states with 'a' in their name
     states = session.query(State).filter(State.name.like('%a%')).all()
-    
     # Delete the states with 'a' in their name
     for state in states:
         session.delete(state)
-    
     # Commit the transaction to the database
     session.commit()
-    
     # Close the session
     session.close()
