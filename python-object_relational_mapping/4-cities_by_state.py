@@ -47,7 +47,6 @@ if __name__ == "__main__":
     """
     Entry point of the script. Expects ee arguments
     """
-    # Check if there are exactly 3 arguments 
     if len(sys.argv) != 4:
         print("Usage: ./4-cities_by_state.py")
         print("       <mysql username>")
