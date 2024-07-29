@@ -7,7 +7,7 @@ import sys
 
 def filter_states_by_name(username, password, database, state_name):
     """
-    Connects to a MySQL database and lists all states, sorted by id.
+    Connects to a MySQL database and lists all states , sorted by id.
 
     Args:
         username (str): The MySQL username.
@@ -25,8 +25,8 @@ def filter_states_by_name(username, password, database, state_name):
     )
     # Create a cursor object
     cursor = db.cursor()
-    # Execute the query to get states with the provided state_name
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
+    # Execute the query to get states with the provided state_name (case-sensitive)
+    query = "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id ASC".format(state_name)
     cursor.execute(query)
     # Fetch all rows from the executed query
     states = cursor.fetchall()
