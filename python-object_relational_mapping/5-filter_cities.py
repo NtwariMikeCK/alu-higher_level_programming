@@ -1,10 +1,13 @@
 #!/usr/bin/python3
+"""mysql"""
+
 import MySQLdb
 import sys
 
+
 def filter_cities(username, password, database, state_name):
     """
-    Connects to a MySQL database and lists all cities from the specified state.
+    Connects to a MySQL database and lists  state.
     The results are sorted by city id and are SQL injection safe.
 
     Args:
@@ -21,11 +24,9 @@ def filter_cities(username, password, database, state_name):
         passwd=password,
         db=database
     )
-    
     # Create a cursor object
     cursor = db.cursor()
-    
-    # Execute the query using parameterized inputs to prevent SQL injection
+    # Execute the query using parameterized  SQL injection
     query = """
         SELECT cities.name
         FROM cities
@@ -34,27 +35,24 @@ def filter_cities(username, password, database, state_name):
         ORDER BY cities.id ASC
     """
     cursor.execute(query, (state_name,))
-    
     # Fetch all rows from the executed query
     cities = cursor.fetchall()
-    
     # Extract city names from the results
     city_names = [city[0] for city in cities]
-    
     # Print the results as a comma-separated list
     print(", ".join(city_names))
-    
     # Close the cursor and database connection
     cursor.close()
     db.close()
 
+
 if __name__ == "__main__":
     """
-    Entry point of the script. Expects exactly 4 command-line arguments:
-    mysql username, mysql password, database name, and state name. If the number of
+    Entry point of the script. Expects eline arguments:
+    mysql username, mysql password,  and state name. If the number of
     arguments is incorrect, prints a usage message.
     """
-    # Check if there are exactly 4 arguments (script name + 4 arguments)
+    # Check if there are exactly 4 arguments
     if len(sys.argv) != 5:
         print("Usage: ./5-filter_cities.py")
         print("       <mysql username>")
