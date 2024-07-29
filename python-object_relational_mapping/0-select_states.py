@@ -1,6 +1,10 @@
 #!/usr/bin/python3
+
+"""i hate python"""
+
 import MySQLdb
 import sys
+
 
 def list_states(username, password, database):
     """
@@ -30,6 +34,7 @@ def list_states(username, password, database):
     # Close the cursor and database connection
     cursor.close()
     db.close()
+
 
 if __name__ == "__main__":
     """
