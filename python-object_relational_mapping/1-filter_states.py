@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-A script that lists all states with a name starting with 'N' from the database hbtn_0e_0_usa.
+A script that lists all states with a  hbtn_0e_0_usa.
 
-The script takes three arguments: MySQL username, MySQL password, and database name.
+The script takes three arguments: MySQL , and database name.
 It connects to a MySQL server running on localhost at port 3306.
 Results are sorted in ascending order by states.id.
 """
