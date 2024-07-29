@@ -12,23 +12,18 @@ if __name__ == "__main__":
     if len(sys.argv) != 4:
         print("Usage: ./14-model_city_fetch_by_state.py <mysql username> <mysql password> <database name>")
         sys.exit(1)
-
     # Extract arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-
     # Create engine and session
     engine = create_engine(f'mysql+mysqldb://{username}:{password}@localhost/{database}', pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-
     # Query all City objects and join with State to get state names
     cities = session.query(City).join(State).order_by(City.id).all()
-
     # Display the results
     for city in cities:
         print(f"{city.state.name}: ({city.id}) {city.name}")
-
     # Close the session
     session.close()
