@@ -25,8 +25,9 @@ def filter_states_by_name(username, password, database, state_name):
     )
     # Create a cursor object
     cursor = db.cursor()
-    # Execute the query to get states with the provided state_name (case-sensitive)
-    query = "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id ASC".format(state_name)
+    # Execute the query to get states (case-sensitive)
+    query = ("SELECT * FROM states WHERE BINARY name = '{}' "
+             "ORDER BY id ASC".format(state_name))
     cursor.execute(query)
     # Fetch all rows from the executed query
     states = cursor.fetchall()
@@ -45,7 +46,8 @@ if __name__ == "__main__":
     """
     # Check if there are exactly 4 arguments (script name + 4 arguments)
     if len(sys.argv) != 5:
-        print("Usage: ./2-my_filter_states.py <mysql username> <mysql password> <database name> <state name>")
+        print("Usage: ./2-my_filter_states.py <mysql username> <mysql password> "
+              "<database name> <state name>")
     else:
         # Extract arguments from command line
         username = sys.argv[1]
