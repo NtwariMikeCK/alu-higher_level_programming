@@ -1,30 +1,15 @@
 #!/usr/bin/python3
+""" python text for indentations"""
+
+
 def text_indentation(text):
+    """ defining the text indentation.
     """
-    Prints a text with 2 new lines after each of these characters: ., ? and :
-
-    Parameters:
-    text (str): The text to be processed.
-
-    Raises:
-    TypeError: If text is not a string.
-    """
-    if not isinstance(text, str):
+    if type(text) is not str:
         raise TypeError("text must be a string")
 
-    chars = ['.', '?', ':']
-    result = ""
-    i = 0
+    for delim in ".:?":
+        text = (delim + "\n\n").join(
+            [line.strip(" ") for line in text.split(delim)])
 
-    while i < len(text):
-        result += text[i]
-        if text[i] in chars:
-            result += "\n\n"
-            i += 1
-            while i < len(text) and text[i] == ' ':
-                i += 1
-            continue
-        i += 1
-
-    # Strip trailing spaces and newlines from the result
-    print(result.strip())
+    print("{}".format(text), end="")
