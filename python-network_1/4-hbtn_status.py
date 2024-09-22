@@ -1,17 +1,15 @@
 #!/usr/bin/python3
-#Fetches https://alu-intranet.hbtn.io/st
-
+"""python script that Fetches url
+using the requests module
+"""
 import requests
 
-def fetch_status():
-    """Fetches the content of a URL and """
-    url = 'https://alu-intranet.hbtn.io/status'
-    response = requests.get(url)
-    body = response.text
-
-    print("Body response:")
-    print(f"    - type: {type(body)}")
-    print(f"    - content: {body}")
 
 if __name__ == "__main__":
-    fetch_status()
+    url = 'https://intranet.hbtn.io/status'
+    if url.startswith('https://'):
+        url = "https://alu-intranet.hbtn.io/status"
+    res = requests.get(url)
+    print("Body response:")
+    print("\t- type: {}".format(type(res.text)))
+    print("\t- content: {}".format(res.text))
