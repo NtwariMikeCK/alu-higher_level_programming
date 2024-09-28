@@ -3,7 +3,7 @@
 const Square5 = require('./5-square');
 
 class Square extends Square5 {
-  charPrint(c) {
+  charPrint (c) {
     // If the character 'c' is not passed, default to 'X'
     if (c === undefined) {
       c = 'X';
