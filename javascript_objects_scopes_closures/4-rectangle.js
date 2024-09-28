@@ -2,7 +2,7 @@
 // 4-rectangle.js
 class Rectangle {
 
-  constructor(w, h) {
+  constructor (w, h) {
     // Check if w and h are positive integers and non-zero
     if (typeof w === 'number' && typeof h === 'number' && w > 0 && h > 0) {
       this.width = w;
@@ -14,21 +14,21 @@ class Rectangle {
   }
 
   // Instance method to print the rectangle using 'X'
-  print() {
+  print () {
     for (let i = 0; i < this.height; i++) {
       console.log('X'.repeat(this.width));
     }
   }
 
   // Instance method to exchange the width and height of the rectangle
-  rotate() {
+  rotate () {
     const temp = this.width;
     this.width = this.height;
     this.height = temp;
   }
 
   // Instance method to double the width and height of the rectangle
-  double() {
+  double () {
     this.width *= 2;
     this.height *= 2;
   }
