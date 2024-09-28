@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 class Rectangle {
-  constructor(w, h) {
+  constructor (w, h) {
     // Check if w and h are positive integers
     if (w > 0 && h > 0) {
       this.width = w;
