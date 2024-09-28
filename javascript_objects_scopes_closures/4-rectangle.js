@@ -1,7 +1,6 @@
 #!/usr/bin/node
 // 4-rectangle.js
 class Rectangle {
-
   constructor (w, h) {
     // Check if w and h are positive integers and non-zero
     if (typeof w === 'number' && typeof h === 'number' && w > 0 && h > 0) {
@@ -33,4 +32,5 @@ class Rectangle {
     this.height *= 2;
   }
 }
+
 module.exports = Rectangle;
