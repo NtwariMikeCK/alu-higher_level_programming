@@ -12,6 +12,8 @@ class Rectangle {
       return {};
     }
   }
+
+  // Instance method to print the rectangle using 'X'
   print () {
     for (let i = 0; i < this.height; i++) {
       console.log('X'.repeat(this.width));
