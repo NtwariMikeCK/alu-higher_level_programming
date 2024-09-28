@@ -1,15 +1,16 @@
 #!/usr/bin/node
-const SquareBase = require('./5-square');
 
-class Square extends SquareBase {
-  // Instance method to print the square using a custom character 'c'
-  charPrinti (c) {
-    // If 'c' is undefined, default to 'X'
-    const charToPrint = c === undefined ? 'X' : c;
+const Square5 = require('./5-square');
 
-    // Print the square using the given character or 'X'
+class Square extends Square5 {
+  charPrint(c) {
+    // If the character 'c' is not passed, default to 'X'
+    if (c === undefined) {
+      c = 'X';
+    }
+    // Print the square using the character 'c'
     for (let i = 0; i < this.height; i++) {
-      console.log(charToPrint.repeat(this.width));
+      console.log(c.repeat(this.width));
     }
   }
 }
