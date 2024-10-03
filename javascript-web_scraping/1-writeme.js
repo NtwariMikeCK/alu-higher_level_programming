@@ -10,6 +10,10 @@ if (!filePath || !stringToWrite) {
   process.exit(1);
 }
 
+// Logging the arguments for debugging purposes
+console.log(`File path: ${filePath}`);
+console.log(`String to write: ${stringToWrite}`);
+
 // Write the string to the file in UTF-8 encoding
 fs.writeFile(filePath, stringToWrite, 'utf-8', (err) => {
   if (err) {
