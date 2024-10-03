@@ -20,7 +20,8 @@ request(apiUrl, (error, response, body) => {
 
   // Count the number of films featuring Wedge Antilles
   films.forEach((film) => {
-    if (film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${wedgeAntillesId}/`)) {
+    // Check if the character ID is in the film's characters list
+    if (film.characters.some((character) => character.endsWith(`/${wedgeAntillesId}/`))) {
       count++;
     }
   });
